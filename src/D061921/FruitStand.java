@@ -57,10 +57,14 @@ public class FruitStand {
 
         displayProducts(productList);
 
-        System.out.println("Enter product type: ");
+        System.out.println("Enter product type: fruit/meat");
         String productType = scan.nextLine();
 
+        // my method uses the amount of fruits and meats to determine which items to display when given a product type.
+
         Display.displayProducts(productList, productType, fruitAmount, meatAmount);
+
+        // displayProduct finds the index of the list that corresponds to the previous produtct Type given.
 
         if (productType.equalsIgnoreCase("fruit") || productType.equalsIgnoreCase("f")) {
             System.out.println("Enter index: ");
