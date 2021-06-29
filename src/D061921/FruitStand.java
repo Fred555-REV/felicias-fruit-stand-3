@@ -24,7 +24,7 @@ public class FruitStand {
             String name = scan.nextLine();
             int amount = (int) (Math.random() * 10) + 1;
             int price = (int) (Math.random() * 10) + 1;
-            int weight = (int) (Math.random() * 3) + 1;
+            int weight = (int) (Math.random() * 5) + 1;
             System.out.println("Enter meat cut: ");
             String cut = scan.nextLine();
             System.out.println("Is the meat cooked? Enter: true/false ");
@@ -43,7 +43,7 @@ public class FruitStand {
             String name = scan.nextLine();
             int amount = (int) (Math.random() * 10) + 1;
             int price = (int) (Math.random() * 10) + 1;
-            int weight = (int) (Math.random() * 3) + 1;
+            int weight = (int) (Math.random() * 5) + 1;
             System.out.println("Enter fruit color: ");
             String color = scan.nextLine();
             System.out.println("Enter fruit size: small/medium/large");
@@ -53,7 +53,7 @@ public class FruitStand {
         }
 //        System.out.println(meatList);
 //        System.out.println(fruitList);
-//        System.out.println(productList); First Try!!!!
+//        System.out.println(productList);
 
         displayProducts(productList);
 
@@ -62,9 +62,17 @@ public class FruitStand {
 
         Display.displayProducts(productList, productType, fruitAmount, meatAmount);
 
-        System.out.println("Enter index: ");
-        int indexI = scan.nextInt();
-        displayProduct(productList, indexI);
+        if (productType.equalsIgnoreCase("fruit") || productType.equalsIgnoreCase("f")) {
+            System.out.println("Enter index: ");
+            int indexI = scan.nextInt();
+            displayProduct(fruitList, indexI);
+        } else if (productType.equalsIgnoreCase("meat") || productType.equalsIgnoreCase("m")) {
+            System.out.println("Enter index: ");
+            int indexI = scan.nextInt();
+            displayProduct(meatList, indexI);
+
+        }
+
         scan.close();
     }
 
@@ -74,7 +82,7 @@ public class FruitStand {
         }
     }
 
-    public static void displayProduct(List<Product> productList, int index) {
+    public static void displayProduct(List productList, int index) {
         System.out.println(productList.get(index));
     }
 
@@ -84,15 +92,15 @@ inputs that I use for testing
 
 3
 Chicken
-breast
+cubed
 false
-beef
-round
+steak
+tips
 true
 Pork
 shoulder
 true
-3
+5
 Banana
 yellow
 medium
@@ -102,18 +110,13 @@ small
 Watermelon
 green
 large
-mEaT
-4
+kiwi
+brown
+small
+tomato
+red
+medium
+fruit
+2
 
 */
-
-/*
-String.format("{name: %s, price: %s, isExpired: %s, quantity: %s, color: %s, inSeason: %s}",
-getName(), getPrice(), getIsExpired(), getQuantity(), getColor(), getInSeason());
-Fred555-Rev
-git remote add origin git@github.com:Fred555-REV/temp.git
-git branch -M main
-git push -u origin main
-
-
- */

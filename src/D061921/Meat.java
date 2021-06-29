@@ -1,6 +1,7 @@
 package D061921;
 
 import java.util.List;
+
 @SuppressWarnings("ALL")
 
 public class Meat extends Product {
@@ -13,17 +14,10 @@ public class Meat extends Product {
         this.isCooked = isCooked;
     }
 
+    @Override
     public String toString() {
-        String cooked = "";
-        if (isCooked) {
-            cooked = "cooked";
-        } else {
-            cooked = "raw";
-        }
-        if (amount > 1 || amount == 0) {
-            return "There are " + amount + " " + cooked + " " + name + " " + cut + "s that weigh a total of " + weight + " pounds, they each cost $" + price + ".";
-        } else if (amount == 1) {
-            return "There is " + amount + " " + cooked + " " + name + " " + cut + " that weighs " + weight + " pounds, it costs $" + price + ".";
+        if (amount >= 0) {
+            return String.format("{name: %s, amount: %s, price: %s, weight: %s, cut: %s, isCooked: %s}", name, amount, price, weight, cut, isCooked);
         }
         return "ERR negative amount";
     }

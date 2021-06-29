@@ -2,6 +2,7 @@ package D061921;
 
 import java.security.PublicKey;
 import java.util.List;
+
 @SuppressWarnings("ALL")
 
 public class Fruit extends Product {
@@ -14,11 +15,10 @@ public class Fruit extends Product {
         this.size = size;
     }
 
+    @Override
     public String toString() {
-        if (amount > 1 || amount == 0) {
-            return "There are " + amount + " " + size + " " + color + " " + name + "s that weigh a total of " + weight + " pounds, they each cost $" + price + ".";
-        } else if (amount == 1) {
-            return "There is " + amount + " " + size + " " + color + " "+ name + " that weighs " + weight + " pounds, it costs $" + price + ".";
+        if (amount >= 0) {
+            return String.format("{name: %s, amount: %s, price: %s, weight: %s, color: %s, size: %s}", name, amount, price, weight, color, size);
         }
         return "ERR negative amount";
     }
